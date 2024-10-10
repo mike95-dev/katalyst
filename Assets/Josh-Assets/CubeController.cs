@@ -4,6 +4,7 @@ public class CubeController : MonoBehaviour
 {
     public float maxSpeed = 200f; // Maximum speed the cube can reach
     public float acceleration = 200f; // Acceleration rate
+    public float deceleration = 400f;
     public float rotationSpeed = 20f;
     private Vector3 currentVelocity = Vector3.zero; // Keeps track of the current velocity
     private Vector3 inputDirection = Vector3.zero; // Direction of input
@@ -12,6 +13,8 @@ public class CubeController : MonoBehaviour
     public Vector3 cameraOffset = new Vector3(20f, 3f, -5f); // Camera offset
     public float tiltAngle = 25f; // Angle to tilt the cube during movement
     private Quaternion targetRotation; // Target rotation for the cube
+
+    Camera mainCamera;
 
     // Define the 50 meter area boundaries (assuming the area is centered at the origin)
     public float areaRadius = 50f; // Radius of the movement area
@@ -41,8 +44,8 @@ public class CubeController : MonoBehaviour
         }
 
         // Get input from WASD or Arrow keys
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
+        float moveHorizontal = Input.GetAxis("HorizontalP1") + (Input.GetAxis("HorizontalP2") * 0.001f);
+        float moveVertical = Input.GetAxis("VerticalP2") + (Input.GetAxis("VerticalP1") * 0.001f);
 
         // Calculate the direction of the input
         inputDirection = new Vector3(moveHorizontal, moveVertical, 0f).normalized;
