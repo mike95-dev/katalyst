@@ -752,7 +752,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 157207112}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
+  m_Script: {fileID: 0}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &157207116
@@ -2127,7 +2127,7 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: 8ba92e2dd7f884a0f88b98fa2d235fe7, type: 2}
+  sharedProfile: {fileID: 11400000, guid: a6560a915ef98420e9faacc1c7438823, type: 2}
 --- !u!4 &432432461
 Transform:
   m_ObjectHideFlags: 0
@@ -7131,5 +7131,4 @@ SceneRoots:
   - {fileID: 526546058}
   - {fileID: 1823688467}
   - {fileID: 348843415}
-  - {fileID: 6212259858468611055}
-  - {fileID: 1780256632}
+  - {fileID: 638632793}
