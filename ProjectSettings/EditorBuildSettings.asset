@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Josh-Assets/OutdoorsScene.unity
     guid: 8124e5870f4fd4c779e7a5f994e84ad1
   - enabled: 1
-    path: Assets/Josh-Assets/New Scene.unity
+    path: Assets/Josh-Assets/MainMenuScene.unity
     guid: e1feb493fc7dfc242b562cdf1e55a507
   m_configObjects: {}
