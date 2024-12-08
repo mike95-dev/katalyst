@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,8 @@ using static UnityEngine.UI.GridLayoutGroup;
 public class DamageOnHit : MonoBehaviour
 {
     //slap this script on things that do damage
+    public Boolean isRepeated;
+    public float liveTime;
 
     public float damage;
     // Start is called before the first frame update
@@ -18,7 +21,14 @@ public class DamageOnHit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (isRepeated)
+        {
+            liveTime -= Time.deltaTime;
+            if (liveTime <= 0)
+            {
+                Destroy(this.gameObject);
+            }
+        }
     }
 
     private void OnCollisionEnter(Collision other)
