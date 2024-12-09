@@ -5,9 +5,11 @@ public class TutorialTrackMovement : MonoBehaviour
 {
     private GameObject turn1Object;  // Reference to the object named "Turn1"
     private GameObject turn2Object;  // Reference to the object named "Turn2"
+    private GameObject endObject; // Reference to the object named "End"
     private GameObject player;  // Reference to the object named "Player"
     private bool turn1 = false;      // Boolean flag to track if the message has been printed
     private bool turn2 = false;      // Boolean flag to track if the message has been printed
+    private bool end = false; // Boolean flag to track if the message has been printed
     public bool canMove = true;      // Variable to control movement
 
     void Start()
@@ -27,6 +29,14 @@ public class TutorialTrackMovement : MonoBehaviour
         if (turn2Object == null)
         {
             Debug.LogError("Turn2 object not found!");
+        }
+
+        endObject = GameObject.Find("End");
+
+        // Ensure End is found
+        if (endObject == null)
+        {
+            Debug.LogError("End object not found!");
         }
 
         player = GameObject.Find("Player");
@@ -66,6 +76,17 @@ public class TutorialTrackMovement : MonoBehaviour
 
                 // Call the coroutine to smooth the rotation and position change
                 StartCoroutine(SmoothRotateAndMove(15, 245, turn2Object.transform.position, turn2Object, 350f, 1.5f));
+            }
+
+            if (endObject != null && !end && endObject.transform.position.z < 50f)
+            {
+                Debug.Log("End has reached a z-position less than 50!");
+                end = true;
+                if (MenuManager.instance != null)
+                {
+                    canMove = false;
+                    MenuManager.instance.ActivateEndScreenState();
+                }
             }
         }
     }
@@ -172,7 +193,7 @@ public class TutorialTrackMovement : MonoBehaviour
 
     public void Collision()
     {
-        Debug.Log("Hello");
+        Debug.Log("Collided!");
         canMove = false;
         GameObject[] allObjects = GameObject.FindObjectsOfType<GameObject>();
 
