@@ -8,6 +8,8 @@ public class MenuManager : MonoBehaviour
     public GameObject startScreenStateObject;
     public GameObject endScreenStateObject;
     public GameObject gameplayStateObject;
+    public float timeSinceMenuOpened;
+    public float startMenuLifespan;
 
     // Start is called before the first frame update
     public void Awake()
@@ -26,12 +28,16 @@ public class MenuManager : MonoBehaviour
     {
         Debug.Log("Starting menu manager!");
         DeactivateAllStates();
-        ActivateGameplayState();
+        ActivateStartScreenState();
     }
     // Update is called once per frame
     void Update()
     {
-        
+        timeSinceMenuOpened += Time.deltaTime;
+        if (timeSinceMenuOpened >= startMenuLifespan)
+        {
+            ActivateGameplayState();
+        }
     }
 
     public void DeactivateAllStates()
@@ -45,6 +51,8 @@ public class MenuManager : MonoBehaviour
     public void ActivateStartScreenState()
     {
         startScreenStateObject.SetActive(true);
+        timeSinceMenuOpened = 0;
+
     }
 
     public void ActivateEndScreenState()
@@ -53,6 +61,7 @@ public class MenuManager : MonoBehaviour
     }
     public void ActivateGameplayState()
     {
+        startScreenStateObject.SetActive(false);
         gameplayStateObject.SetActive(true);
     }
 
