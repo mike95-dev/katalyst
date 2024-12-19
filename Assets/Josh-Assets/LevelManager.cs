@@ -1,9 +1,8 @@
+// This script is meant to handle all scene management, such as activating the pause menu and switching between scenes.
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
-// This script is meant to handle all scene management, such as activating the pause menu and switching between scenes.
 public class LevelManager : MonoBehaviour
 {
     #region Variables
@@ -24,7 +23,7 @@ public class LevelManager : MonoBehaviour
         {
             instance = this; // Set this gameObject as the instance
             DontDestroyOnLoad(gameObject); // Don't destroy the first Scene Manager in the scene
-            
+
             // Activate the main menu (set as the first scene)
             SetNextScene(1); // 1 is a test number for now
             ActivateNextScene();
