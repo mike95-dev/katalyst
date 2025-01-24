@@ -101,7 +101,7 @@ public class TutorialTrackMovement : MonoBehaviour
         transform.position = targetPosition;
     }
 
-    IEnumerator CollisionHandler()
+    IEnumerator GameOverHandler()
     {
         // Wait for 5 seconds
         yield return new WaitForSeconds(3f);
@@ -208,6 +208,17 @@ public class TutorialTrackMovement : MonoBehaviour
             Debug.LogError("No shootingscript component found on the 'Player' object!");
         }
 
-        StartCoroutine(CollisionHandler());
+        HealthComponent healthComponent = player.GetComponent<HealthComponent>();
+
+        if (healthComponent != null)
+        {
+            healthComponent.currentHealth = healthComponent.maxHealth;
+        }
+        else
+        {
+            Debug.LogError("No shootingscript component found on the 'Player' object!");
+        }
+
+        StartCoroutine(GameOverHandler());
     }
 }
