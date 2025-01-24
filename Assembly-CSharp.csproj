@@ -70,6 +70,7 @@
     <Compile Include="Assets\Health\HealthComponent.cs" />
     <Compile Include="Assets\LazerDetection.cs" />
     <Compile Include="Assets\ControlSwitching.cs" />
+    <Compile Include="Assets\Health\PlayerHealthComponent.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
