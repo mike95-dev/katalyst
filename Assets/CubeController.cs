@@ -16,6 +16,11 @@ public class CubeController : MonoBehaviour
     public bool ADmove = true;      // Variable to control movement
     public bool WSmove = true;      // Variable to control movement
 
+    public bool allowInput = true;  // Flag to enable or disable keyboard input
+
+    public float moveHorizontal;   // Variables to hold input values
+    public float moveVertical;
+
     // Define the 50 meter area boundaries (assuming the area is centered at the origin)
     public float areaRadius = 50f; // Radius of the movement area
 
@@ -37,9 +42,18 @@ public class CubeController : MonoBehaviour
             float maxVerticalSpeed = baseMaxSpeed * verticalSpeedMultiplier;
             float maxHorizontalSpeed = baseMaxSpeed * horizontalSpeedMultiplier;
 
-            // Get input from keyboard or controller's left stick, applying speed multipliers
-            float moveHorizontal = Input.GetAxis("Horizontal") * horizontalSpeedMultiplier;
-            float moveVertical = Input.GetAxis("Vertical") * verticalSpeedMultiplier;
+            // Flag to stop keyboard input without freezing the physics
+            if (allowInput)
+            {
+                // Get input from keyboard or controller's left stick, applying speed multipliers
+                moveHorizontal = Input.GetAxis("Horizontal") * horizontalSpeedMultiplier;
+                moveVertical = Input.GetAxis("Vertical") * verticalSpeedMultiplier;
+            }
+            else
+            {
+                moveHorizontal = 0f;
+                moveVertical = 0f;
+            }
 
             // Calculate the direction of the input
             inputDirection = new Vector3(moveHorizontal, moveVertical, 0f).normalized;
