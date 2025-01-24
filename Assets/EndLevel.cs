@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class EndLevel : MonoBehaviour
 {
-    // Reference to the player controller
-    public CubeController playerController;
-
     // Disable player controls first
     public void OnTriggerEnter(Collider other)
     {
         // Check if the player is passing through the end of the level trigger
         if (other.CompareTag("Player"))
         {
+            CubeController playerController = other.GetComponent<CubeController>();
+
             // Disable the players movement
             playerController.allowInput = false;     
         }
