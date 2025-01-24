@@ -12,8 +12,11 @@ public class EndLevel : MonoBehaviour
         {
             CubeController playerController = other.GetComponent<CubeController>();
 
-            // Disable the players movement
-            playerController.allowInput = false;     
+            if (playerController != null)
+            {
+                // Disable the players movement
+                playerController.allowInput = false;
+            }
         }
     }
 
@@ -25,13 +28,18 @@ public class EndLevel : MonoBehaviour
         if (other.CompareTag("MainCamera"))
         {
             Animator camAnimator = other.GetComponent<Animator>();
-            camAnimator.enabled = true;
 
-            PlayCameraEndingAnimation(camAnimator);
+            if (camAnimator != null)
+            {
+                // Make sure the animator is enabled
+                camAnimator.enabled = true;
+                // Play the animation
+                PlayCameraEndingAnimation(camAnimator);
+            }
         }
     }
 
-
+    // Function to play the animation
     public void PlayCameraEndingAnimation(Animator camAnimator)
     {
         camAnimator.Play("CameraEndLevel");
