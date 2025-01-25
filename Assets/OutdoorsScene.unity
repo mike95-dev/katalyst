@@ -2669,7 +2669,6 @@ GameObject:
   - component: {fileID: 284653614}
   - component: {fileID: 284653613}
   - component: {fileID: 284653612}
-  - component: {fileID: 284653621}
   - component: {fileID: 284653616}
   - component: {fileID: 284653618}
   - component: {fileID: 284653619}
@@ -2843,33 +2842,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   canMoveForward: 1
---- !u!54 &284653621
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 284653611}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 32
-  m_CollisionDetection: 0
 --- !u!1 &306387308
 GameObject:
   m_ObjectHideFlags: 0
@@ -18541,7 +18513,7 @@ PrefabInstance:
     - target: {fileID: 5742967673048973526, guid: a418137f554a73a419c782cfb573bf6b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -62.5
+      value: 85.3
       objectReference: {fileID: 0}
     - target: {fileID: 5742967673048973526, guid: a418137f554a73a419c782cfb573bf6b,
         type: 3}

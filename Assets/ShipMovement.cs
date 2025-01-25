@@ -10,15 +10,9 @@ public class ShipMovement : MonoBehaviour
     // Flag to start or stop ship movement
     public bool canMoveForward = true;
 
-    // Reference to the rigidbody
-    private Rigidbody rb;
-
     // Start is called before the first frame update
     void Start()
     {
-        // Get the rb component
-        rb = GetComponent<Rigidbody>();
-
         // Multiply the speed by 10 for easier to use values
         speed *= 10;
     }
@@ -29,7 +23,12 @@ public class ShipMovement : MonoBehaviour
         // If ship can move, move it forward based on the speed
         if (canMoveForward)
         {
-            rb.MovePosition(transform.position + transform.forward * speed * Time.deltaTime);
+            // Get the current position
+            Vector3 forward = transform.position;
+            // Increment the z value
+            forward.z += 10;
+            // Move towards the new position
+            transform.position = Vector3.MoveTowards(transform.position, forward, speed * Time.deltaTime);
         }
     }
 
