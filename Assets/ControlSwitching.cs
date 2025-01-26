@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
+using TMPro;
 
 public class ControlSwitcher : MonoBehaviour
 {
@@ -15,6 +17,10 @@ public class ControlSwitcher : MonoBehaviour
     public Texture2D vignetteTexture; // Assign the red vignette texture in the Inspector
     private bool isFlashing = false;
     private float flashSpeed = 4f; // Speed of the flashing effect
+
+    // UI variables
+    public Text control_Version;
+    public Text countdown;
 
     void Start()
     {
@@ -61,6 +67,10 @@ public class ControlSwitcher : MonoBehaviour
 
         countdownTimer = timeUntilSwitch; // Initialize countdown timer
         StartCoroutine(SwitchControls());
+    }
+    private void Update()
+    {
+        GUI();
     }
 
     IEnumerator SwitchControls()
@@ -132,17 +142,22 @@ public class ControlSwitcher : MonoBehaviour
         crosshairScript.Aim(true);
     }
 
-    void OnGUI()
+    void GUI()
     {
-        GUIStyle style = new GUIStyle();
+        control_Version.text = controlMessage;
+
+        countdown.text = "Next Switch In: " + Mathf.Ceil(countdownTimer) + "s";
+    
+
+        /*GUIStyle style = new GUIStyle();
         style.fontSize = 24;
         style.normal.textColor = Color.white;
 
         // Display the control message at the top-center of the screen
-        GUI.Label(new Rect(Screen.width / 2 - 100, 20, 200, 40), controlMessage, style);
+        GUI.Label(new Rect(Screen.width / 2 - 100, Screen.height / 2 - 350, 200, 40), controlMessage, style);
 
         // Display the countdown timer below the control message
-        GUI.Label(new Rect(Screen.width / 2 - 100, 60, 200, 40), "Next Switch In: " + Mathf.Ceil(countdownTimer) + "s", style);
+        GUI.Label(new Rect(Screen.width / 2 - 100, Screen.height / 2 - 300, 200, 40), "Next Switch In: " + Mathf.Ceil(countdownTimer) + "s", style);
 
         // Flashing vignette effect
         if (isFlashing && vignetteTexture != null)
@@ -152,6 +167,6 @@ public class ControlSwitcher : MonoBehaviour
             GUI.color = vignetteColor;
             GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), vignetteTexture);
             GUI.color = Color.white; // Reset GUI color to white
-        }
+        } */
     }
 }

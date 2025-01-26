@@ -62,11 +62,12 @@
   <ItemGroup>
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\ShootingScript.cs" />
+    <Compile Include="Assets\Josh-Assets\Art\Menu Assets\StarMapStuff\Level_Menu_Manager.cs" />
+    <Compile Include="Assets\Josh-Assets\Art\Menu Assets\StarMapStuff\OpenStarMap.cs" />
     <Compile Include="Assets\CubeController.cs" />
     <Compile Include="Assets\BulletManager.cs" />
     <Compile Include="Assets\TutorialTrackMovement.cs" />
     <Compile Include="Assets\CrosshairScript.cs" />
-    <Compile Include="Assets\Josh-Assets\Art\Menu Assets\Level Menu\Level_Menu_Manager.cs" />
     <Compile Include="Assets\LazerDetection.cs" />
     <Compile Include="Assets\ControlSwitching.cs" />
   </ItemGroup>
