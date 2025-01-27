@@ -16,6 +16,9 @@ public class ControlSwitcher : MonoBehaviour
     private bool isFlashing = false;
     private float flashSpeed = 4f; // Speed of the flashing effect
 
+    [Header("Debug Menu")]
+    public bool debug = false;
+
     void Start()
     {
         GameObject player = GameObject.Find("Player");
@@ -59,8 +62,18 @@ public class ControlSwitcher : MonoBehaviour
             return;
         }
 
-        countdownTimer = timeUntilSwitch; // Initialize countdown timer
-        StartCoroutine(SwitchControls());
+        // Check for debug mode
+        if (!debug)
+        {
+            // Normal Gameplay
+            countdownTimer = timeUntilSwitch; // Initialize countdown timer
+            StartCoroutine(SwitchControls());
+        }
+        else
+        {
+            // Debug Mode
+            EnableAllControls();
+        }
     }
 
     IEnumerator SwitchControls()
@@ -100,6 +113,16 @@ public class ControlSwitcher : MonoBehaviour
 
             controlState = (controlState + 1) % 3; // Cycle through control states
         }
+    }
+
+    void EnableAllControls()
+    {
+        Debug.Log("Debug Mode");
+        controlMessage = "All Controls Engaged";
+        cubeController.WS(true);
+        cubeController.AD(true);
+        shootingScript.Shoot(true);
+        crosshairScript.Aim(true);
     }
 
     void EnableWSControls()
