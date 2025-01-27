@@ -13,11 +13,13 @@ public class EndTrackLoop : MonoBehaviour
         // If the object that triggered this is the player
         if (hasSpawned == false && other.CompareTag("Player"))
         {
-            // Get a spawn location for the next section - offset by 10 units in front of the trigger
+            // Get a spawn location for the next section - offset to be in front of the next section
+            // Since there is no great way to move the origin of a prefab, use about 800 units
             Vector3 spawn = new Vector3(transform.position.x, 0, transform.position.z + 800);
 
             // Get a reference to the parent objects transform
             // The parent will be the moving track
+            // ** This can be removed once the track stays in place **
             GameObject parentObj = GameObject.FindWithTag("LevelTrack");
             Transform parent = parentObj.transform;
 

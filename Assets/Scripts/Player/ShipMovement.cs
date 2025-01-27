@@ -5,7 +5,7 @@ using UnityEngine;
 public class ShipMovement : MonoBehaviour
 {
     // Speed for how fast the ship travels
-    public float speed;
+    public float speed = 1;     // Default of 1
 
     // Flag to start or stop ship movement
     public bool canMoveForward = true;
@@ -23,12 +23,8 @@ public class ShipMovement : MonoBehaviour
         // If ship can move, move it forward based on the speed
         if (canMoveForward)
         {
-            // Get the current position
-            Vector3 forward = transform.position;
-            // Increment the z value
-            forward.z += 10;
-            // Move towards the new position
-            transform.position = Vector3.MoveTowards(transform.position, forward, speed * Time.deltaTime);
+            // Move the ship forward
+            transform.position += transform.forward * speed * Time.deltaTime;
         }
     }
 

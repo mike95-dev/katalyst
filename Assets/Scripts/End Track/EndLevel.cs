@@ -22,6 +22,7 @@ public class EndLevel : MonoBehaviour
 
     // Move the camera after player is out of the trigger
     // This adds as slight pause between losing control and moving the camera to display stats
+    // Dependant on how long the collider is
     public void OnTriggerExit(Collider other)
     {
         // Check if the camera is passing through the end of the level trigger
