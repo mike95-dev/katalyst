@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class CubeController : MonoBehaviour
 {
@@ -20,17 +19,8 @@ public class CubeController : MonoBehaviour
     // Define the 50 meter area boundaries (assuming the area is centered at the origin)
     public float areaRadius = 50f; // Radius of the movement area
 
-    // Player Input Variables
-    public PlayerControls playerControls;
-    public float horizontalVector; // Ensure that "HorizontalMove" is set up in PlayerControls InputAction
-    public float verticalVector; // Ensure that "VerticalMove" is set up in PlayerControls InputAction
-
     void Start()
     {
-        // Gain control scheme
-        playerControls = new PlayerControls();
-
-        // Get Camera Variables
         cameraTransform = Camera.main.transform;
         cameraTransform.position = transform.position + cameraOffset;
     }
@@ -48,8 +38,8 @@ public class CubeController : MonoBehaviour
             float maxHorizontalSpeed = baseMaxSpeed * horizontalSpeedMultiplier;
 
             // Get input from keyboard or controller's left stick, applying speed multipliers
-            float moveHorizontal = horizontalVector * horizontalSpeedMultiplier;
-            float moveVertical = verticalVector * verticalSpeedMultiplier;
+            float moveHorizontal = Input.GetAxis("Horizontal") * horizontalSpeedMultiplier;
+            float moveVertical = Input.GetAxis("Vertical") * verticalSpeedMultiplier;
 
             // Calculate the direction of the input
             inputDirection = new Vector3(moveHorizontal, moveVertical, 0f).normalized;
@@ -138,19 +128,5 @@ public class CubeController : MonoBehaviour
     public void WS(bool value)
     {
         WSmove = value;
-    }
-
-    // InputAction HorizontalMove
-    public void OnHorizontalMove(InputAction.CallbackContext ctx)
-    {
-        float moveValue = ctx.ReadValue<float>();
-        horizontalVector = moveValue;
-    }
-
-    // InputAction VerticalMove
-    public void OnVerticalMove(InputAction.CallbackContext ctx)
-    {
-        float moveValue = ctx.ReadValue<float>();
-        verticalVector = moveValue;
     }
 }

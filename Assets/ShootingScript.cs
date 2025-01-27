@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections;
-using UnityEngine.InputSystem;
 
 public class PlayerShootingTowardsCrosshair : MonoBehaviour
 {
@@ -10,24 +9,23 @@ public class PlayerShootingTowardsCrosshair : MonoBehaviour
     public float fireRate = 0.5f; // Half-second delay between shots
     public LayerMask ignoreLayer; // Layer mask for layers to ignore, assign "Player" layer here in the inspector
     private Camera mainCamera;
-    public bool isShooting = false; // Flag to check if the player wants to fire
     private bool isFiring = false; // Flag to check if the player is currently firing
     public CrosshairFollowMouseWithRadius crosshairScript; // Reference to the crosshair script
     public bool canShoot = true;      // Variable to control movement
     public bool collision = false;      // Variable to control movement
 
-    public PlayerControls playerControls;
-
     void Start()
     {
-        playerControls = new PlayerControls();
         mainCamera = Camera.main; // Cache the main camera reference
     }
 
     void Update()
     {
-        if (canShoot && !collision) // Check if the player CAN shoot first.
+        if (canShoot && !collision)
         {
+            // Detect if the left mouse button is pressed or right trigger is engaged (assuming axis name "RightTrigger")
+            bool isShooting = Input.GetMouseButton(0) || Input.GetAxis("RightTrigger") > 0.5f;
+
             if (isShooting && !isFiring) // Trigger shooting if not already firing
             {
                 StartCoroutine(FireContinuously());
@@ -39,7 +37,7 @@ public class PlayerShootingTowardsCrosshair : MonoBehaviour
     {
         isFiring = true; // Set firing flag to true
 
-        while (isShooting && (canShoot & !collision)) // Continue firing while the button or trigger is held down
+        while ((Input.GetMouseButton(0) || Input.GetAxis("RightTrigger") > 0.5f) && (canShoot & !collision)) // Continue firing while the button or trigger is held down
         {
             Shoot(); // Call the Shoot method
             yield return new WaitForSeconds(fireRate); // Wait for the fire rate duration before shooting again
@@ -95,18 +93,5 @@ public class PlayerShootingTowardsCrosshair : MonoBehaviour
     public void Collision(bool value)
     {
         collision = value;
-    }
-
-    // InputAction Shoot
-    public void OnShoot(InputAction.CallbackContext ctx)
-    {
-        if (ctx.performed)
-        {
-            isShooting = true;
-        }
-        else
-        {
-            isShooting = false;
-        }
     }
 }

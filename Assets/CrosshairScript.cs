@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class CrosshairFollowMouseWithRadius : MonoBehaviour
 {
@@ -11,15 +10,8 @@ public class CrosshairFollowMouseWithRadius : MonoBehaviour
     public bool canAim = true;      // Variable to control movement
     public bool collision = false;      // Variable to control movement
 
-    public PlayerControls playerControls;
-    public float horizontalVector; // Ensure that "HorizontalAim" is set up in PlayerControls InputAction
-    public float verticalVector; // Ensure that "VerticalAim" is set up in PlayerControls InputAction
-
     void Start()
     {
-        // Get player contorls
-        playerControls = new PlayerControls();
-
         // Hide the default system cursor
         Cursor.visible = false;
 
@@ -38,8 +30,8 @@ public class CrosshairFollowMouseWithRadius : MonoBehaviour
     void UpdateCrosshairPositionWithStick()
     {
         // Get the right stick input for controlling the crosshair
-        float rightStickX = horizontalVector; // Ensure "RightStickHorizontal" is set up in Input Manager
-        float rightStickY = verticalVector;   // Ensure "RightStickVertical" is set up in Input Manager
+        float rightStickX = Input.GetAxis("RightStickHorizontal"); // Ensure "RightStickHorizontal" is set up in Input Manager
+        float rightStickY = Input.GetAxis("RightStickVertical");   // Ensure "RightStickVertical" is set up in Input Manager
 
         // Move the crosshair based on right stick input and sensitivity
         crosshairPos += new Vector2(rightStickX, rightStickY) * stickSensitivity;
@@ -87,19 +79,5 @@ public class CrosshairFollowMouseWithRadius : MonoBehaviour
     public void Aim(bool value)
     {
         canAim = value;
-    }
-    
-    // InputAction HorizontalAim
-    public void OnHorizontalAim(InputAction.CallbackContext ctx)
-    {
-        float moveValue = ctx.ReadValue<float>();
-        horizontalVector = moveValue;
-    }
-
-    // InputAction VerticalAim
-    public void OnVerticalAim(InputAction.CallbackContext ctx)
-    {
-        float moveValue = ctx.ReadValue<float>();
-        verticalVector = moveValue;
     }
 }

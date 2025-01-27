@@ -2673,7 +2673,6 @@ GameObject:
   - component: {fileID: 284653617}
   - component: {fileID: 284653618}
   - component: {fileID: 284653619}
-  - component: {fileID: 284653620}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -2789,8 +2788,6 @@ MonoBehaviour:
   ADmove: 1
   WSmove: 1
   areaRadius: 50
-  horizontalVector: 0
-  verticalVector: 0
 --- !u!65 &284653617
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2832,7 +2829,6 @@ MonoBehaviour:
   ignoreLayer:
     serializedVersion: 2
     m_Bits: 8
-  isShooting: 0
   crosshairScript: {fileID: 1880739094}
   canShoot: 1
   collision: 0
@@ -2849,94 +2845,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vignetteTexture: {fileID: 2800000, guid: ea52155c5e11810429e462035528a0c8, type: 3}
-  debug: 1
---- !u!114 &284653620
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 284653611}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 61b5481204bb8534e9f4e746c2b9a255,
-    type: 3}
-  m_NotificationBehavior: 2
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 284653618}
-        m_TargetAssemblyTypeName: PlayerShootingTowardsCrosshair, Assembly-CSharp
-        m_MethodName: OnShoot
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 08328b25-a0d7-4745-81aa-e29c5b8d1aee
-    m_ActionName: BasicGameplay/Shoot[/Mouse/leftButton]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 284653616}
-        m_TargetAssemblyTypeName: CubeController, Assembly-CSharp
-        m_MethodName: OnHorizontalMove
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: d3f0f221-a42b-4baa-80c3-e6e055278f9c
-    m_ActionName: BasicGameplay/HorizontalMove[/Keyboard/a,/Keyboard/d]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 284653616}
-        m_TargetAssemblyTypeName: CubeController, Assembly-CSharp
-        m_MethodName: OnVerticalMove
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: c948b380-6000-455b-bbd0-0f448cb030d2
-    m_ActionName: BasicGameplay/VerticalMove[/Keyboard/s,/Keyboard/w]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 31258976-7723-4292-98a4-84b13222e399
-    m_ActionName: BasicGameplay/HorizontalAim[/Mouse/delta/left,/Mouse/delta/right]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 3e8d4394-4617-40e4-b6cf-8066c31713f3
-    m_ActionName: BasicGameplay/VerticalAim[/Mouse/delta/down,/Mouse/delta/up]
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: BasicGameplay
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!1 &306387308
 GameObject:
   m_ObjectHideFlags: 0
@@ -3435,7 +3343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43d49a4f82257964dabc1e456998e4ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canMove: 0
+  canMove: 1
 --- !u!1 &361646595
 GameObject:
   m_ObjectHideFlags: 0
@@ -14736,7 +14644,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1880739095}
   - component: {fileID: 1880739094}
-  - component: {fileID: 1880739096}
   m_Layer: 0
   m_Name: CrossHair
   m_TagString: Untagged
@@ -14760,8 +14667,6 @@ MonoBehaviour:
   stickSensitivity: 1
   canAim: 1
   collision: 0
-  horizontalVector: 0
-  verticalVector: 0
 --- !u!4 &1880739095
 Transform:
   m_ObjectHideFlags: 0
@@ -14771,87 +14676,12 @@ Transform:
   m_GameObject: {fileID: 1880739093}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -35.38}
+  m_LocalPosition: {x: -3274.6067, y: -3308.9375, z: 6057.0293}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1880739096
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1880739093}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 61b5481204bb8534e9f4e746c2b9a255,
-    type: 3}
-  m_NotificationBehavior: 2
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 08328b25-a0d7-4745-81aa-e29c5b8d1aee
-    m_ActionName: BasicGameplay/Shoot[/Mouse/leftButton]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: d3f0f221-a42b-4baa-80c3-e6e055278f9c
-    m_ActionName: BasicGameplay/HorizontalMove[/Keyboard/a,/Keyboard/d]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: c948b380-6000-455b-bbd0-0f448cb030d2
-    m_ActionName: BasicGameplay/VerticalMove[/Keyboard/s,/Keyboard/w]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1880739094}
-        m_TargetAssemblyTypeName: CrosshairFollowMouseWithRadius, Assembly-CSharp
-        m_MethodName: OnHorizontalAim
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 31258976-7723-4292-98a4-84b13222e399
-    m_ActionName: BasicGameplay/HorizontalAim[/Mouse/delta/left,/Mouse/delta/right]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1880739094}
-        m_TargetAssemblyTypeName: CrosshairFollowMouseWithRadius, Assembly-CSharp
-        m_MethodName: OnVerticalAim
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 3e8d4394-4617-40e4-b6cf-8066c31713f3
-    m_ActionName: BasicGameplay/VerticalAim[/Mouse/delta/down,/Mouse/delta/up]
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: BasicGameplay
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!1 &1888735104
 GameObject:
   m_ObjectHideFlags: 0
