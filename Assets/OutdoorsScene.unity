@@ -2872,7 +2872,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 20
-  currentHealth: 20
+  currentHealth: 100
   invincibilityTime: 1
   isInvincible: 0
 --- !u!1 &306387308

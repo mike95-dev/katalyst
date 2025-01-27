@@ -373,7 +373,6 @@
 "Assets/CubeController.cs"
 "Assets/Health/DamageOnHit.cs"
 "Assets/Health/HealthComponent.cs"
-"Assets/Health/PlayerHealthComponent.cs"
 "Assets/LazerDetection.cs"
 "Assets/ShootingScript.cs"
 "Assets/TutorialInfo/Scripts/Readme.cs"
