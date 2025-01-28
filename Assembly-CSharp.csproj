@@ -11,7 +11,6 @@
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
     <ProjectGuid>{641C177C-A176-3B85-CE49-BC1D8852677B}</ProjectGuid>
-    <ProjectGuid>{641C177C-A176-3B85-CE49-BC1D8852677B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -61,15 +60,16 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.46f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Player\ShipMovement.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\ShootingScript.cs" />
-    <Compile Include="Assets\EndTrackLoop.cs" />
     <Compile Include="Assets\Scripts\Input\PlayerControls.cs" />
     <Compile Include="Assets\CubeController.cs" />
-    <Compile Include="Assets\EndLevel.cs" />
     <Compile Include="Assets\BulletManager.cs" />
     <Compile Include="Assets\TutorialTrackMovement.cs" />
+    <Compile Include="Assets\Scripts\End Track\EndLevel.cs" />
     <Compile Include="Assets\CrosshairScript.cs" />
+    <Compile Include="Assets\Scripts\End Track\EndTrackLoop.cs" />
     <Compile Include="Assets\LazerDetection.cs" />
     <Compile Include="Assets\ControlSwitching.cs" />
   </ItemGroup>

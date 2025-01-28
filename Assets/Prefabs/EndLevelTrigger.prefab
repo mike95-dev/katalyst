@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5742967673048973526}
   - component: {fileID: 805123082420328053}
   - component: {fileID: 6318698284152936652}
-  - component: {fileID: 7238036046119443370}
+  - component: {fileID: 8828727553847547500}
   m_Layer: 0
   m_Name: EndLevelTrigger
   m_TagString: Untagged
@@ -82,7 +82,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 135, y: 135, z: 35}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7238036046119443370
+--- !u!114 &8828727553847547500
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -91,6 +91,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 7004451607193966195}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0dba5f9e31e51734da46c5c5e5e3bfa3, type: 3}
+  m_Script: {fileID: 11500000, guid: 6149648148d248e4f8c97f773be10251, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
