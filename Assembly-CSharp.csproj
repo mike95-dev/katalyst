@@ -11,6 +11,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
     <ProjectGuid>{641C177C-A176-3B85-CE49-BC1D8852677B}</ProjectGuid>
+    <ProjectGuid>{641C177C-A176-3B85-CE49-BC1D8852677B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -62,8 +63,10 @@
   <ItemGroup>
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\ShootingScript.cs" />
+    <Compile Include="Assets\EndTrackLoop.cs" />
     <Compile Include="Assets\Scripts\Input\PlayerControls.cs" />
     <Compile Include="Assets\CubeController.cs" />
+    <Compile Include="Assets\EndLevel.cs" />
     <Compile Include="Assets\BulletManager.cs" />
     <Compile Include="Assets\TutorialTrackMovement.cs" />
     <Compile Include="Assets\CrosshairScript.cs" />
