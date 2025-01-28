@@ -16,14 +16,17 @@ public class ControlSwitcher : MonoBehaviour
     private float countdownTimer; // Timer to show time remaining for the next switch
 
     // Vignette flashing effect variables
-    public Texture2D vignetteTexture; // Assign the red vignette texture in the Inspector
+    //public Texture2D vignetteTexture; // Assign the red vignette texture in the Inspector
     private bool isFlashing = false;
-    private float flashSpeed = 4f; // Speed of the flashing effect
+    public float flashSpeed = 4f; // Speed of the flashing effect
+    public GameObject vignette; // The flashing red outline
+    private bool vignetteVisible; // If the flashing red outline is visible
+    private float vignetteTime; // Keep track of time for the timer
 
     // UI variables
     public Text control_Version;
-    public Text countdown;
-    public GameObject vignette;
+    public Text countdown; // countdown until control change
+
 
     void Start()
     {
@@ -69,11 +72,13 @@ public class ControlSwitcher : MonoBehaviour
         }
 
         countdownTimer = timeUntilSwitch; // Initialize countdown timer
+        vignetteTime = Time.deltaTime;
         StartCoroutine(SwitchControls());
     }
     private void Update()
     {
         GUI();
+        vignetteTime += Time.deltaTime;
     }
 
     IEnumerator SwitchControls()
@@ -145,19 +150,53 @@ public class ControlSwitcher : MonoBehaviour
         crosshairScript.Aim(true);
     }
 
+
     void GUI()
     {
-        control_Version.text = controlMessage;
+        control_Version.text = controlMessage; // top UI
 
-        countdown.text = "Next Switch In: " + Mathf.Ceil(countdownTimer) + "s";
+        countdown.text = "Next Switch In: " + Mathf.Ceil(countdownTimer) + "s"; // bottom UI
 
+        // How the red outline flashes
         if (isFlashing && vignette != null) 
         { 
-            vignette.SetActive(false);
+            if (vignetteTime > flashSpeed)
+            {
+                if (isFlashing == false)
+                {
+                    vignette.gameObject.SetActive(false);
+                }
+                else if (isFlashing == true)
+                {
+                    if (vignetteVisible == false)
+                    {
+                        vignette.gameObject.SetActive(true);
+                        vignetteVisible = true;
+
+                        vignetteTime = 0;
+                    }
+                    else if (vignetteVisible == true)
+                    {
+                        vignette.gameObject.SetActive(false);
+                        vignetteVisible = false;
+
+                        vignetteTime = 0;
+                    }
+                }
+                else
+                {
+                    Debug.Log("isFlashing not found");
+                }
+            }
+            
         }
     
 
-        /*GUIStyle style = new GUIStyle();
+        /*
+         * Old UI, used as refrence and backup incase something breaks
+         * If needed, change the function to OnGUI() and comment out above code
+         * 
+         * GUIStyle style = new GUIStyle();
         style.fontSize = 24;
         style.normal.textColor = Color.white;
 
