@@ -2,6 +2,8 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.UIElements;
+using Unity.VisualScripting;
 
 public class ControlSwitcher : MonoBehaviour
 {
@@ -21,6 +23,7 @@ public class ControlSwitcher : MonoBehaviour
     // UI variables
     public Text control_Version;
     public Text countdown;
+    public GameObject vignette;
 
     void Start()
     {
@@ -147,6 +150,11 @@ public class ControlSwitcher : MonoBehaviour
         control_Version.text = controlMessage;
 
         countdown.text = "Next Switch In: " + Mathf.Ceil(countdownTimer) + "s";
+
+        if (isFlashing && vignette != null) 
+        { 
+            vignette.SetActive(false);
+        }
     
 
         /*GUIStyle style = new GUIStyle();
