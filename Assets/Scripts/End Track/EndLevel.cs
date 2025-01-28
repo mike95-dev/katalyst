@@ -29,7 +29,7 @@ public class EndLevel : MonoBehaviour
         if (other.CompareTag("MainCamera"))
         {
             Animator camAnimator = other.GetComponent<Animator>();
-
+            
             if (camAnimator != null)
             {
                 // Make sure the animator is enabled
